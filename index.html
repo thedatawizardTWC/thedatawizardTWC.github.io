@@ -868,7 +868,7 @@ geojson.features.forEach(function(marker){
 });
 
 map.on('load', function() {
-  var url = 'https://github.com/thedatawizardTWC/tower-cam-map/blob/master/current_ww.geojson';
+  var url = 'current_ww.geojson';
   map.addSource('current_ww', { type: 'geojson', data: url});
 });
 
