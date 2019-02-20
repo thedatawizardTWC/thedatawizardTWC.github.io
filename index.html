@@ -872,6 +872,12 @@ map.on('load', function() {
   map.addSource('current_ww', { type: 'geojson', data: url});
 });
 
+map.addLayer({
+	'id': 'products'
+	'source': 'current_ww'
+	}
+);
+
 </script>
 
 </body>
