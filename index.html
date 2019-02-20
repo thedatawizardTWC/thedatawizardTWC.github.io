@@ -879,6 +879,12 @@ map.on('load', function() {
         'layout': {},
         'paint': {
             'fill-opacity': 0.5
+			'fill-color': [
+			'match',
+			['get', 'TYPE'],
+			'FF', '#00cc00',
+			/* other */, '#ff3300'
+			]
         }
     });
 });
