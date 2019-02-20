@@ -871,9 +871,9 @@ geojson.features.forEach(function(marker){
 	el.className = 'marker';
 	
 	new L.Marker(el)
-		.setLngLat(marker.geometry.coordinates)
-		.setPopup(new L.Popup({offset: 25})
-			.setHTML('<h3>' + marker.properties.Location + '</h3><p><i>Comments: ' + marker.properties.Description + '</i></p><p><a href="' + marker.properties.URL + '">Camera link</a>'))
+		.setLatLng(marker.geometry.coordinates)
+		.setPopupContent(new L.Popup({offset: 25})
+			.setContent('<h3>' + marker.properties.Location + '</h3><p><i>Comments: ' + marker.properties.Description + '</i></p><p><a href="' + marker.properties.URL + '">Camera link</a>'))
 		.addTo(map);
 });
 
