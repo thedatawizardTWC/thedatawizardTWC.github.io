@@ -10,7 +10,7 @@
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
         .marker {
-            background-image: url('cam.svg');
+            background-image: url('files/cam.svg');
             background-size: cover;
             width: 20px;
             height: 20px;
@@ -868,7 +868,7 @@ geojson.features.forEach(function(marker){
 });
 
 map.on('load', function() {
-  var url = 'current_ww.geojson';
+  var url = 'files/current_ww.geojson';
   map.addSource('current_ww', { type: 'geojson', data: url});
 });
 
