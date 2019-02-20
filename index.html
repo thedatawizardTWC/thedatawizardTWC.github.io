@@ -852,27 +852,27 @@ var geojson = {
 
 var map = L.map('map').setView([51.505, -0.09], 13);
 
-map.addControl(new L.NavigationControl(),['top-left']);
+//map.addControl(new mapboxgl.NavigationControl(),['top-left']);
 
-var draw = new MapboxDraw({
-    displayControlsDefault: false,
-    controls: {
-        line_string: false,
-        polygon: false,
-        point: false,
-        trash: false
-    }
-});
+//var draw = new MapboxDraw({
+//    displayControlsDefault: false,
+//    controls: {
+//        line_string: false,
+//        polygon: false,
+//        point: false,
+//        trash: false
+//    }
+//});
 
-map.addControl(draw,['top-left'] );
+//map.addControl(draw,['top-left'] );
 
 geojson.features.forEach(function(marker){
 	var el = document.createElement('div');
 	el.className = 'marker';
 	
-	new mapboxgl.Marker(el)
+	new L.Marker(el)
 		.setLngLat(marker.geometry.coordinates)
-		.setPopup(new mapboxgl.Popup({offset: 25})
+		.setPopup(new L.Popup({offset: 25})
 			.setHTML('<h3>' + marker.properties.Location + '</h3><p><i>Comments: ' + marker.properties.Description + '</i></p><p><a href="' + marker.properties.URL + '">Camera link</a>'))
 		.addTo(map);
 });
