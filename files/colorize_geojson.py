@@ -5,6 +5,11 @@ data = json.load(file1)
 file1.close()
 
 for i in range(0, len(data['features'])):
-    data['features'][i]['properties']['color'] = "#28B463"
+    ww = data['features'][i]['properties']['TYPE'] + data['features'][i]['properties']['SIG']
+    if ww in ['FAA', 'FAY', 'FAW', 'FFS', 'FFA', 'FLY', 'FLW', 'FLA']:
+        data['features'][i]['properties']['color'] = "#28B463"
+    else:
+        data['features'][i]['properties']['color'] = "#ffffff"
+        
 
 json.dump(data, open('test.geojson','w'))
