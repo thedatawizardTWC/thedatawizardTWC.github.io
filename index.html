@@ -869,7 +869,6 @@ geojson.features.forEach(function(marker){
 
 map.on('load', function() {
   var url = 'files/current_ww.geojson';
-  //map.addSource('current_ww', { type: 'geojson', data: url});
     map.addLayer({
         'id': 'nws_products',
         'type': 'fill',
@@ -879,8 +878,13 @@ map.on('load', function() {
             },
         'layout': {},
         'paint': {
-            'fill-color': '#088',
-            'fill-opacity': 0.8
+            'fill-opacity': 0.5
+			'color':[
+				'match',
+				['get', 'TYPE'],
+				'FF', '#00cc00',
+				/* other */ '#ffffff'
+			]
         }
     });
 });
