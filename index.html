@@ -835,9 +835,6 @@ var geojson = {
 ]
 };
 
-var color_table = [
-{"TYPE": "FF", "color": "#00cc00"},
-];
 
 var map = new mapboxgl.Map({
   container: 'map',
@@ -872,11 +869,6 @@ geojson.features.forEach(function(marker){
 });
 
 map.on('load', function() {
-	var expression = ["match", ["get", "TYPE"]];
-	color_table.forEach(function(row) {
-		expression.push(row["TYPE"], color);
-		});
-	expression.push("rgba(0,0,0,0)");
 	var url = 'files/current_ww.geojson';
     map.addLayer({
         'id': 'nws_products',
@@ -887,7 +879,12 @@ map.on('load', function() {
             },
         'layout': {},
         'paint': {
-			'fill-color': expression,
+			'fill-color': {
+				property: "TYPE",
+				match: [
+					["FF", "#00cc00"],
+				]
+			}
 			'fill-opacity': 0.5
         }
     });
