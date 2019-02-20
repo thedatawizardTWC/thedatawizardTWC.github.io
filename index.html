@@ -868,25 +868,25 @@ geojson.features.forEach(function(marker){
 		.addTo(map);
 });
 
-//map.on('load', function() {
-//	var url = 'files/current_ww.geojson';
-//    map.addLayer({
-//        'id': 'nws_products',
-//        'type': 'fill',
-//        'source': {
-//            'type': 'geojson',
-//            'data': url
-//            },
-//        'layout': {},
-//        'paint': {
-//			'fill-color': {
-//            type: 'identity',
-//            property: 'color',
-//        },
-//			'fill-opacity': 0.5
-//        }
-//    });
-//});
+map.on('load', function() {
+	var url = 'files/current_ww.geojson';
+    map.addLayer({
+        'id': 'nws_products',
+        'type': 'fill',
+        'source': {
+            'type': 'geojson',
+            'data': url
+            },
+        'layout': {},
+        'paint': {
+			'fill-color': {
+            type: 'identity',
+            property: 'color',
+        },
+			'fill-opacity': 0.5
+        }
+    });
+});
 
 </script>
 
