@@ -835,6 +835,10 @@ var geojson = {
 ]
 };
 
+var color_table = [
+{"TYPE": "FF", "color": "#00cc00"},
+];
+
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11',
@@ -868,7 +872,12 @@ geojson.features.forEach(function(marker){
 });
 
 map.on('load', function() {
-  var url = 'files/current_ww.geojson';
+	var expression = ["match", ["get", "TYPE"]];
+	color_table.forEach(function(row) {
+		expression.push(row["TYPE"], color);
+		});
+	expression.push("rgba(0,0,0,0)");
+	var url = 'files/current_ww.geojson';
     map.addLayer({
         'id': 'nws_products',
         'type': 'fill',
@@ -878,7 +887,7 @@ map.on('load', function() {
             },
         'layout': {},
         'paint': {
-			"fill-color": ["match",["get","TYPE"],FF,"#bd0026"],
+			'fill-color': expression,
 			'fill-opacity': 0.5
         }
     });
