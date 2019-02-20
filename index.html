@@ -870,15 +870,12 @@ geojson.features.forEach(function(marker){
 map.on('load', function() {
   var url = 'files/current_ww.geojson';
   map.addSource('current_ww', { type: 'geojson', data: url});
-});
-
-map.on('load', function () {
     map.addLayer({
         'id': 'nws_products',
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': 'current_ww'
+            'data': url
             },
         'layout': {},
         'paint': {
