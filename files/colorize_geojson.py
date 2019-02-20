@@ -12,4 +12,4 @@ for i in range(0, len(data['features'])):
         data['features'][i]['properties']['color'] = "#ffffff"
         
 
-json.dump(data, open('test.geojson','w'))
+json.dump(data, open('current_ww.geojson','w'))
